@@ -1,16 +1,13 @@
+import express from "express";
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { SSEServerTransport } from "@modelcontextprotocol/sdk/server/sse.js";
-import express from "express";
 import { z } from "zod";
 
 const app = express();
 
 const mcpServer = new McpServer({
-  name: "Hacker News",
+  name: "hacker-news-server",
   version: "1.0.0",
-  // capabilities: {
-  //   sse: true,
-  // },
 });
 
 mcpServer.tool(
@@ -36,7 +33,7 @@ mcpServer.tool(
     return {
       content: stories.map((story: any) => ({
         type: "text",
-        text: story.title,
+        text: JSON.stringify(story),
       })),
     };
   }
@@ -57,6 +54,6 @@ app.post("/messages", (req, res) => {
   }
 });
 
-app.listen(3002, () => {
-  console.log("Server is running on port 3002");
+app.listen(3006, () => {
+  console.log("Server is running on port 3006");
 });
