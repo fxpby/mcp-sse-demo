@@ -3,7 +3,7 @@
 ## 功能实现
 
 - 实现一个 SSE 传输的 MCP 服务器
-- CheeryStudio 利用 LLM 调用本地运行的 MCP Server 抓取分析数据
+- 使用 Client 如 CheeryStudio 借助 LLM 调用本地运行的 MCP 服务器抓取分析数据
 
 ## 环境准备
 
